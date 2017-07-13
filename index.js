@@ -53,6 +53,16 @@ app.post('/upload', urlencodedParser, function (req, res){
 	})
 });
 
+app.get('/remove/:i', function (req, res){
+	var i = req.params.i;
+	data.splice(i, 1);
+	res.redirect('/');
+});
+
+app.get('/edit/:i', function (req, res){
+
+});
+
 var data = [];
 
 var Task = function(title,description, image) {
