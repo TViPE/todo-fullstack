@@ -53,15 +53,22 @@ app.post('/upload', urlencodedParser, function (req, res){
 	})
 });
 
+// app.post('/editItem', urlencodedParser, function(req, res){
+// 	console.log('id:' + req.body.id);
+// })
+
 app.get('/remove/:i', function (req, res){
 	var i = req.params.i;
-	data.splice(i, 1);
-	res.redirect('/');
+	fs.unlink('./public/img/upload/{$data[i].image}', function(){
+		res.redirect('/');
+	})
+	data.splice(i, 1);	
 });
 
-app.get('/edit/:i', function (req, res){
-
-});
+// app.get('/edit/:i', function (req, res){
+// 	var i = req.params.i;
+// 	res.render('editItem', {data: i});
+// });
 
 var data = [];
 
