@@ -1,0 +1,17 @@
+body {
+	background-color: #dbdde0;
+}
+#formInput {
+	border: 1px solid black;
+	border-radius: 3px;
+	margin-top: 30vh;
+	background-color: #e2bb4f;
+}
+
+form {
+	margin: 10px;
+}
+
+form label {
+	padding-top: 10px;
+}
