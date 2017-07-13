@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Main Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/mainpage_layout.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+		<script type="text/javascript" src="js/mainpage.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h3>Task Overview</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Description</td>
+						<td>Image</td>
+						<td>Edit</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% data.forEach(function (e, i){ %>
+					<tr>
+						<td><%= i+1 %></td>
+						<td><%= e.title %></td>
+						<td><%= e.description %></td>
+						<td><img src="img/upload/<%= e.image %>" style="width: 150px" alt=""></td>
+						<td>
+							<a href="/edit/<%= i %>">Edit</a> /
+							<a href="/remove/<%= i %>">Remove</a>
+						</td>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
