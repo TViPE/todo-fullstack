@@ -53,9 +53,7 @@ app.post('/upload', urlencodedParser, function (req, res){
 	})
 });
 
-// app.post('/editItem', urlencodedParser, function(req, res){
-// 	console.log('id:' + req.body.id);
-// })
+
 
 app.get('/remove/:i', function (req, res){
 	var i = req.params.i;
@@ -65,10 +63,29 @@ app.get('/remove/:i', function (req, res){
 	data.splice(i, 1);	
 });
 
-// app.get('/edit/:i', function (req, res){
-// 	var i = req.params.i;
-// 	res.render('editItem', {data: i});
-// });
+app.get('/edit/:i', function (req, res){
+	var i = req.params.i;
+	console.log("i " + i);
+	res.render('editItem', {data: i});
+});
+
+app.post('/edit/:i', urlencodedParser, function (req,res){
+	var i = req.params.i;
+	upload(req, res, function (err){
+		if(err) {
+			console.log(err);
+		}
+		var title = req.body.title;
+		var description = req.body.description;
+		var image = req.file.filename;
+
+		data[i].title = title;
+		data[i].description = description;
+		data[i].image = image;
+		res.redirect('/');
+
+	});
+})
 
 var data = [];
 

@@ -16,7 +16,7 @@
 		<div class="container">
 			<div id="editItemForm">
 				<h2>Edit Item</h2>
-				<form action="/editItem" method="post" enctype="multipart/form-data">
+				<form action="/edit/<%= data %>" method="post" enctype="multipart/form-data">
 					<label for="id">ID</label>
 					<input type="text" readonly="true" name="id" value="<%= data %>">
 					<label for="title">Title</label>
